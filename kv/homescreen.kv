@@ -1,0 +1,23 @@
+#:import utils kivy.utils
+<HomeScreen>:
+    MDFloatLayout:
+        MDToolbar:
+            title: "Let's play cricket?"
+            md_bg_color: app.theme_cls.primary_light
+            pos_hint: {"top": .999, "left": 1}
+            size_hint: 1, .1
+            elevation:12
+    ScrollView:
+        pos_hint: {"top": .795, "left": .9}
+        MDList:
+            id:listv
+
+<FullList>:
+    id: "Player"
+    text:root.text
+    secondry_text:root.secondary_text
+    _no_ripple_effect: True
+    halign: 'right'
+    on_press: app.connect_bt(root.text,root.secondry_text)
+    IconLeftWidget:
+        icon: "cricket"
