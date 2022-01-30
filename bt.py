@@ -1,13 +1,16 @@
-import bluetooth
+from bluetoothctl import Bluetoothctl
+import time
 
 def finddevices():
-    nearby_devices = bluetooth.discover_devices(lookup_names=True)
-    print("Found {} devices.".format(len(nearby_devices)))
+        bl = Bluetoothctl()
+        bl.start_scan()
+        print("Scanning for 10 seconds...")
+        for i in range(0, 10):
+            print(i)
+            time.sleep(1)
+        nearby_devices = bl.get_discoverable_devices()
+        print(nearby_devices)
+        return nearby_devices
 
-    return nearby_devices
 
-def connectdevice(addr):
-    s = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
-
-    s.connect((addr,1))
 

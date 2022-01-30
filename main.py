@@ -5,8 +5,8 @@ from kivymd.app import MDApp
 import random
 from kivy.core.window import Window
 from kivymd.uix.list import OneLineIconListItem, OneLineAvatarIconListItem, TwoLineIconListItem, TwoLineListItem
-
-from bt import finddevices, connectdevice
+from bluetoothctl import *
+from bt import finddevices
 
 Window.size = (400, 800)
 
@@ -51,6 +51,6 @@ class MainApp(MDApp):
 
     def connect_bt(self,addr,name):
         print(addr,name)
-        connectdevice(addr)
+
 
 MainApp().run()
